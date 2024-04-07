@@ -1,3 +1,4 @@
+
 #ToDo Rename lol
 
 import os
@@ -7,8 +8,10 @@ def GetUsername():
     username = ""
     usernamePath = "C:\Program Files (x86)\Steam\config\loginusers.vdf"
     usernameFile = open(usernamePath)
+
     for i in usernameFile:
         if "PersonaName" in i:
+
             username = i.split()[1].strip("\"")
     return username
 
