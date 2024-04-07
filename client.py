@@ -60,6 +60,6 @@ def main():
     for i in games:
         print(i)
     
-    
+    input("\nPress Enter To Close")
 
 main()
