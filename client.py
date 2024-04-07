@@ -1,6 +1,7 @@
 #ToDo Rename lol
 
 import os
+import socket
 
 def GetUsername():
     username = ""
@@ -44,9 +45,17 @@ def findLibs(driveList):
             libraryPaths.append(driveLib)
     return libraryPaths
 
+def push(str):
+    s = socket.socket()
+    s.connect(('127.0.0.1',69))
+    s.send(str.encode());
+    data = "N:",s.recv(1024).decode()
+    s.close()
+
 def main():
     username = GetUsername()
     libs = []
+    
     print("Identifying User")
     print("User Found: ")
     print(username)
@@ -57,8 +66,12 @@ def main():
     games = findGames(libs)
     print("Games have been successfully detected!!!!\n")
     print(username + " has currently installed:")
+    userLib = username
     for i in games:
         print(i)
+        userLib = userLib + "," + i
+    push(userLib)
+    
     
     input("\nPress Enter To Close")
 
